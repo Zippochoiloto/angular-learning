@@ -13,3 +13,7 @@
         <mat-error *ngIf = "this.profile.invalid">Pls fill in name</mat-error>
     </div>
 </div>
+
+<div>
+    Reverse Name: {{this.profile.value.name | reverse}}
+</div>

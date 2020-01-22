@@ -12,17 +12,16 @@ export class UserFormComponent implements OnInit {
   profile: FormGroup
   ngOnInit() {
     this.profile = this.fb.group({
-      name: [''],
+      name: '',
       password: ['',[this.passwordValidator()]]
     })
-    this.profile.valueChanges.subscribe(_x=> console.log(this.profile))
+    this.profile.valueChanges.subscribe(x=> this.passwordValidator())
   }
   
 
   passwordValidator():ValidatorFn{
     return (_control: AbstractControl): {[key:string]: boolean} | null => {
       if(this.profile !== undefined){
-        console.log(this.profile.value.name)
         if(this.profile.value.name == ""){
           return {_control: true}
         }

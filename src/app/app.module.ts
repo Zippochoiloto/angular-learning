@@ -10,12 +10,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms'
 import {MatFormFieldModule,MatInputModule} from '@angular/material';
 import { DemoMaterialModule } from './user-form/material-module';
+import { ReversePipe } from './reverse.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChangeTextDirective,
-    UserFormComponent
+    UserFormComponent,
+    ReversePipe
   ],
   imports: [
     DemoMaterialModule,
