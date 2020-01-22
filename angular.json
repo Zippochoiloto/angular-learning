@@ -28,7 +28,12 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss",
+              "node_modules/@syncfusion/ej2-base/styles/material.css",
+              "node_modules/@syncfusion/ej2-buttons/styles/material.css",
+              "node_modules/@syncfusion/ej2-popups/styles/material.css",
+              "node_modules/@syncfusion/ej2-angular-notifications/styles/material.css"
             ],
             "scripts": []
           },
@@ -93,6 +98,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -124,6 +130,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "angular-learn"
 }

@@ -1,0 +1,15 @@
+<h1>Example Form</h1>
+<div class="example-container" [formGroup]="profile">
+    <div style="padding: 10px;">
+        <mat-form-field>
+            <input matInput placeholder="Name" formControlName="name" />
+        </mat-form-field>
+    </div>
+
+    <div style="padding: 10px">
+        <mat-form-field>
+            <input matInput placeholder="Password" type="password" formControlName="password" />
+        </mat-form-field>
+        <mat-error *ngIf = "this.profile.invalid">Pls fill in name</mat-error>
+    </div>
+</div>
