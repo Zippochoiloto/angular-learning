@@ -6,6 +6,7 @@ import {
   AbstractControl
 } from "@angular/forms";
 import { HttpService } from "../service/http.service";
+import {Subject} from 'rxjs'
 
 @Component({
   selector: "app-user-form",
@@ -16,16 +17,27 @@ export class UserFormComponent implements OnInit {
   constructor(private fb: FormBuilder, private httpService: HttpService) {}
   profile: FormGroup;
   dataFromAPI: any;
+  v =5
   ngOnInit() {
     this.profile = this.fb.group({
       name: "",
-      password: ["", [this.passwordValidator()]]
+      password: [""]
     });
-    this.profile.valueChanges.subscribe(x => this.passwordValidator());
+    this.profile.valueChanges.subscribe(x =>
+      this.profile.controls["password"].setValidators(this.passwordValidator()))
+      // console.log(this.profile))
+    ;
+    
     this.httpService.getAPI().subscribe(val => {
       this.dataFromAPI = val;
-      console.log(val)
+      console.log(val);
     });
+
+    this.subject.subscribe({
+      next: (v) => console.log(`observableA: $v`)
+    })
+
+    this.subject.next()
   }
 
   passwordValidator(): ValidatorFn {
@@ -38,4 +50,7 @@ export class UserFormComponent implements OnInit {
       }
     };
   }
+  subject = new Subject<any>();
+
+  
 }
